@@ -33,7 +33,7 @@
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         section { padding: 100px 0; }
         .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)), url('background.jpg'), url('hero.jpg'); background-size: cover; background-position: center; z-index: -1; }
+        .hero-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)), url('background.jpg'); background-size: cover; background-position: center; z-index: -1; }
         .hero-content { width: 100%; max-width: 920px; margin: 0 auto; text-align: center; padding: 20px; }
         .hero-logo { width: min(600px, 88vw); height: auto; display: block; margin: 0 auto 1.5rem; filter: drop-shadow(0 16px 32px rgba(0,0,0,.28)); }
         .slogan { font-size: clamp(1.7rem, 4vw, 3rem); color: var(--text-light); margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.03em; }
@@ -53,26 +53,20 @@
         .countdown-item { padding: 16px 10px; border-radius: 18px; background: rgba(8,27,51,.62); border: 1px solid rgba(125,211,252,.22); box-shadow: 0 12px 28px rgba(0,0,0,.18); }
         .countdown-value { display: block; font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--accent); line-height: 1; transition: opacity .2s ease; }
         .countdown-label { display: block; margin-top: 8px; color: var(--text-muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; }
-        .timeline-section { background: linear-gradient(180deg, rgba(8, 27, 51, 0.94) 0%, rgba(14, 39, 72, 0.82) 100%); border-top: 3px solid var(--primary); border-bottom: 3px solid var(--primary); }
-        .section-intro { text-align: center; margin: 0 auto 50px; max-width: 860px; }
-        .section-intro h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--accent); margin-bottom: 15px; }
-        .section-intro p { font-size: 1.22rem; color: var(--text-muted); margin: 0 auto; }
-        .timeline { display: grid; grid-template-columns: repeat(4, minmax(160px, 1fr)); gap: 22px; margin-top: 40px; }
-        .timeline-card, .about-feature, .ethics-card, .organizer-card { background-color: var(--card-bg); border-radius: 20px; padding: 28px; transition: transform .3s ease, background-color .3s ease, border-color .3s ease, box-shadow .3s ease; border: 1px solid rgba(255,255,255,.1); }
-        .timeline-card:hover, .about-feature:hover, .ethics-card:hover, .organizer-card:hover { transform: translateY(-10px); background-color: rgba(14,165,233,.13); border-color: var(--secondary); box-shadow: 0 20px 40px rgba(14,165,233,.2); }
-        .timeline-card { position: relative; text-align: center; min-height: 145px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .timeline-card:not(:last-child)::after { content: '↓'; position: absolute; right: -18px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: var(--accent); font-size: 1.6rem; font-weight: 800; }
-        .timeline-number { width: 46px; height: 46px; border-radius: 50%; background: var(--primary); color: var(--primary-bg); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-weight: 800; font-family: var(--font-heading); }
-        .timeline-title { font-size: 1.12rem; color: var(--text-light); font-weight: 700; font-family: var(--font-heading); }
-        .about-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
-        .about-content p, .organizer-card p, .ethics-card p { color: var(--text-muted); }
+        .results-section { background: linear-gradient(180deg, rgba(8, 27, 51, 0.94) 0%, rgba(14, 39, 72, 0.82) 100%); border-top: 3px solid var(--primary); border-bottom: 3px solid var(--primary); }
+        .results-header { text-align: center; margin-bottom: 50px; }
+        .results-header h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--accent); margin-bottom: 15px; }
+        .results-header p { font-size: 1.3rem; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
+        .teams-container, .about-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+        .team-card, .about-feature, .organizer-card { background-color: var(--card-bg); border-radius: 20px; padding: 28px; transition: transform .3s ease, background-color .3s ease, border-color .3s ease, box-shadow .3s ease; border: 1px solid rgba(255,255,255,.1); }
+        .team-card:hover, .about-feature:hover, .organizer-card:hover { transform: translateY(-10px); background-color: rgba(14,165,233,.13); border-color: var(--secondary); box-shadow: 0 20px 40px rgba(14,165,233,.2); }
+        .team-rank { width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: var(--primary-bg); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-weight: 800; font-family: var(--font-heading); font-size: 1.2rem; }
+        .team-project-name { font-size: 1.35rem; color: var(--accent); margin-bottom: 10px; font-weight: 700; text-align: center; }
+        .team-level, .about-content p, .organizer-card p { color: var(--text-muted); }
         .about-content { max-width: 900px; margin: 0 auto; }
         .about-highlight { background: linear-gradient(90deg, rgba(14,165,233,.14), transparent); border-left: 5px solid var(--primary); padding: 30px; border-radius: 0 15px 15px 0; margin: 40px 0; }
         .about-feature { text-align: center; }
         .about-feature i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
-        .ethics-card { max-width: 920px; margin: 0 auto; border-left: 5px solid var(--cta); }
-        .ethics-card h3 { color: var(--accent); display: flex; align-items: center; gap: 12px; }
-        .ethics-card i { color: var(--cta); }
         .organizers-container { display: flex; flex-direction: column; align-items: center; gap: 40px; }
         .organizer-card { text-align: center; width: 100%; max-width: 700px; padding: 50px; }
         .club-logo-circle { width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; box-shadow: 0 10px 30px rgba(14,165,233,.35); overflow: hidden; }
@@ -88,7 +82,6 @@
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         footer .fade-in { opacity: 1 !important; transform: translateY(0) !important; }
-        @media (max-width: 992px) { .timeline { grid-template-columns: repeat(2, minmax(160px, 1fr)); } .timeline-card:not(:last-child)::after { right: 50%; top: auto; bottom: -28px; transform: translateX(50%); } }
         @media (max-width: 768px) { section { padding: 70px 0; } .nav-dots { display: none; } .organizer-card { padding: 30px 20px; } .countdown { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
         @media (max-width: 480px) { .hero-content { padding: 10px; } .countdown { grid-template-columns: repeat(2, 1fr); gap: 10px; } .btn { width: min(100%, 310px); } .dropdown-menu { min-width: min(280px, 88vw); } .club-logo-circle { width: 120px; height: 120px; } }
     </style>
@@ -98,7 +91,7 @@
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="container">
             <div class="hero-content fade-in">
-                <img src="Maker Mind Small.png" alt="MakerMind" class="hero-logo" onerror="this.onerror=null; this.src='Maker Mind small.png';">
+                <img src="Maker_Mind.png" alt="MakerMind" class="hero-logo">
                 <h1 class="slogan">Build Ideas That Matter</h1>
                 <p class="tagline">An open innovation competition where students transform real-world problems into impactful solutions through creativity, technology, and entrepreneurship.</p>
                 <div class="hero-actions">
@@ -122,22 +115,13 @@
         </div>
     </section>
 
-    <section id="timeline" class="timeline-section">
+    <section id="results" class="results-section">
         <div class="container">
-            <div class="section-intro fade-in">
-                <h2>Competition Timeline</h2>
-                <p>MakerMind guides students from registration to finals through a clear innovation journey. Participants begin with a real problem they care about, submit an idea, receive evaluation and mentorship, build a prototype, and pitch their solution for impact.</p>
+            <div class="results-header fade-in">
+                <h2>Open Innovation Domains</h2>
+                <p>MakerMind welcomes ideas from any field where students see a real problem and have the courage to build a meaningful solution.</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-card fade-in"><div class="timeline-number">1</div><div class="timeline-title">Registration</div></div>
-                <div class="timeline-card fade-in"><div class="timeline-number">2</div><div class="timeline-title">Idea Submission</div></div>
-                <div class="timeline-card fade-in"><div class="timeline-number">3</div><div class="timeline-title">Evaluation</div></div>
-                <div class="timeline-card fade-in"><div class="timeline-number">4</div><div class="timeline-title">Shortlisting</div></div>
-                <div class="timeline-card fade-in"><div class="timeline-number">5</div><div class="timeline-title">Mentorship</div></div>
-                <div class="timeline-card fade-in"><div class="timeline-number">6</div><div class="timeline-title">Prototype</div></div>
-                <div class="timeline-card fade-in"><div class="timeline-number">7</div><div class="timeline-title">Pitch Day</div></div>
-                <div class="timeline-card fade-in"><div class="timeline-number">8</div><div class="timeline-title">Finals</div></div>
-            </div>
+            <div class="teams-container"></div>
         </div>
     </section>
 
@@ -160,17 +144,6 @@
         </div>
     </section>
 
-    <section id="ethics">
-        <div class="container">
-            <h2 class="fade-in">AI Ethics</h2>
-            <div class="ethics-card fade-in">
-                <h3><i class="fas fa-scale-balanced" aria-hidden="true"></i> Responsible Use of AI</h3>
-                <p>AI tools will be used responsibly as a support mechanism rather than a replacement for individual or team creativity, knowledge, and problem-solving abilities. The submission must reflect the original ideas, technical work, and intellectual contribution of the participant(s).</p>
-                <p>Excessive reliance on AI-generated content that does not demonstrate genuine understanding or involvement may compromise the integrity of the work. Participants are expected to maintain transparency, originality, and accountability throughout the project process. AI assistance should only be used to enhance productivity while preserving the authenticity of the final submission.</p>
-            </div>
-        </div>
-    </section>
-
     <section id="organizers">
         <div class="container">
             <h2 class="fade-in">Organized By</h2>
@@ -187,9 +160,22 @@
 
     <footer><div class="container"><h3>ICT & Innovation Club</h3><p>Empowering youth through technology and innovation</p><div class="copyright">&copy; 2026 MakerMind. All rights reserved.</div></div></footer>
 
-    <div class="nav-dots" aria-label="Section navigation"><a href="#home" class="nav-dot active" data-section="home" aria-label="Home"></a><a href="#timeline" class="nav-dot" data-section="timeline" aria-label="Timeline"></a><a href="#about" class="nav-dot" data-section="about" aria-label="About"></a><a href="#ethics" class="nav-dot" data-section="ethics" aria-label="AI Ethics"></a><a href="#organizers" class="nav-dot" data-section="organizers" aria-label="Organizers"></a></div>
+    <div class="nav-dots" aria-label="Section navigation"><a href="#home" class="nav-dot active" data-section="home" aria-label="Home"></a><a href="#results" class="nav-dot" data-section="results" aria-label="Domains"></a><a href="#about" class="nav-dot" data-section="about" aria-label="About"></a><a href="#organizers" class="nav-dot" data-section="organizers" aria-label="Organizers"></a></div>
 
     <script>
+        const domainsData = [
+            { icon: 'fa-robot', name: 'Artificial Intelligence' }, { icon: 'fa-heart-pulse', name: 'Healthcare' }, { icon: 'fa-graduation-cap', name: 'Education' }, { icon: 'fa-seedling', name: 'Agriculture' }, { icon: 'fa-cloud-sun', name: 'Climate' }, { icon: 'fa-shield-halved', name: 'Cybersecurity' }, { icon: 'fa-coins', name: 'Finance' }, { icon: 'fa-universal-access', name: 'Accessibility' }, { icon: 'fa-briefcase', name: 'Entrepreneurship' }, { icon: 'fa-city', name: 'Smart Cities' }, { icon: 'fa-handshake-angle', name: 'Social Innovation' }
+        ];
+        function generateDomainCards() {
+            const container = document.querySelector('.teams-container');
+            domainsData.forEach((domain, index) => {
+                const card = document.createElement('div');
+                card.className = 'team-card fade-in';
+                card.innerHTML = `<div class="team-rank"><i class="fas ${domain.icon}" aria-hidden="true"></i></div><div class="team-project-name">${domain.name}</div><div class="team-level">Bring forward an original problem, a thoughtful solution, and a clear path to impact.</div>`;
+                container.appendChild(card);
+            });
+            setTimeout(checkScroll, 100);
+        }
         function updateCountdown() {
             const targetDate = new Date('2026-11-12T00:00:00Z').getTime();
             const distance = Math.max(0, targetDate - Date.now());
@@ -237,7 +223,7 @@
         }
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('load', checkScroll);
-        document.addEventListener('DOMContentLoaded', () => { setupDropdown(); updateCountdown(); setInterval(updateCountdown, 1000); document.querySelector('.hero-content').classList.add('visible'); checkScroll(); if (window.location.hash) updateActiveNavDot(window.location.hash.substring(1)); });
+        document.addEventListener('DOMContentLoaded', () => { generateDomainCards(); setupDropdown(); updateCountdown(); setInterval(updateCountdown, 1000); document.querySelector('.hero-content').classList.add('visible'); if (window.location.hash) updateActiveNavDot(window.location.hash.substring(1)); });
     </script>
 </body>
 </html>
