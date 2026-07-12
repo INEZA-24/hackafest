@@ -3,767 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI FOR GOOD – AI Hackafest</title>
+    <title>MakerMind – ICT & Innovation Club</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-bg: #0B1D51;
-            --highlight: #00CFFF;
+            --primary-bg: #081B33;
+            --primary: #0EA5E9;
+            --secondary: #38BDF8;
+            --accent: #7DD3FC;
+            --cta: #F97316;
             --text-light: #FFFFFF;
-            --text-muted: #B0B8D0;
-            --card-bg: rgba(20, 40, 100, 0.5);
+            --text-muted: #B8C7D9;
+            --card-bg: rgba(14, 39, 72, 0.72);
             --font-heading: 'Poppins', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: var(--font-body);
-            background-color: var(--primary-bg);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-weight: 400;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.5px;
-        }
-        
-        h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background-color: var(--highlight);
-            border-radius: 3px;
-        }
-        
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.15rem;
-            line-height: 1.7;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 100px 0;
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2;
-            z-index: -1;
-        }
-        
-        .hero-content {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .slogan {
-            font-size: 2rem;
-            color: var(--highlight);
-            margin-bottom: 1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
-        .tagline {
-            font-size: 1.8rem;
-            margin-bottom: 2.5rem;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-        
-        /* Results Section */
-        .results-section {
-            background: linear-gradient(180deg, rgba(11, 29, 81, 0.9) 0%, rgba(20, 40, 100, 0.7) 100%);
-            border-top: 3px solid var(--highlight);
-            border-bottom: 3px solid var(--highlight);
-        }
-        
-        .results-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .results-header h2 {
-            font-size: 3rem;
-            color: var(--highlight);
-            margin-bottom: 15px;
-        }
-        
-        .results-header p {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .teams-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .team-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            background-color: rgba(0, 207, 255, 0.1);
-            border-color: var(--highlight);
-            box-shadow: 0 15px 30px rgba(0, 207, 255, 0.2);
-        }
-        
-        .team-rank {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--highlight);
-            color: var(--primary-bg);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-        }
-        
-        .team-project-name {
-            font-size: 1.6rem;
-            color: var(--highlight);
-            margin-bottom: 10px;
-            font-weight: 700;
-            min-height: 60px;
-        }
-        
-        .team-details {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .team-detail {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .team-detail i {
-            color: var(--highlight);
-            margin-right: 10px;
-            width: 20px;
-        }
-        
-        .team-leader {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .team-level {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        
-        /* Organizers Section */
-        .organizers-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .organizer-card {
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-            width: 100%;
-            max-width: 700px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .organizer-card:hover {
-            transform: translateY(-10px);
-            border: 1px solid var(--highlight);
-            box-shadow: 0 20px 40px rgba(0, 207, 255, 0.25);
-        }
-        
-        /* Circular Logo Div */
-        .club-logo-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--highlight), #0066FF);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px;
-            box-shadow: 0 10px 30px rgba(0, 207, 255, 0.4);
-        }
-        
-        .club-logo-text {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--primary-bg);
-            font-family: var(--font-heading);
-            text-align: center;
-            line-height: 1.2;
-        }
-        
-        /* About Section */
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .about-highlight {
-            background: linear-gradient(90deg, rgba(0, 207, 255, 0.1), transparent);
-            border-left: 5px solid var(--highlight);
-            padding: 30px;
-            border-radius: 0 15px 15px 0;
-            margin: 40px 0;
-        }
-        
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-        
-        .about-feature {
-            text-align: center;
-            padding: 25px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .about-feature:hover {
-            transform: translateY(-10px);
-            background-color: rgba(0, 207, 255, 0.1);
-        }
-        
-        .about-feature i {
-            font-size: 2.5rem;
-            color: var(--highlight);
-            margin-bottom: 20px;
-        }
-        
-        .club-logo-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 50%;
-            display: block;
-            padding: 0;
-            margin: 0;
-            border: none;
-            background-color: transparent;
-        }
-
-        .club-logo-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 50px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .copyright {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-top: 25px;
-        }
-        
-        /* Navigation */
-        .nav-dots {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .nav-dot:hover, .nav-dot.active {
-            background-color: var(--highlight);
-            transform: scale(1.5);
-        }
-        
-        /* Hero title */
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            letter-spacing: -0.5px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1100px) {
-            .hero-title {
-                font-size: 3.2rem;
-                white-space: normal;
-            }
-            
-            h1 {
-                font-size: 3.2rem;
-            }
-            
-            h2 {
-                font-size: 2.4rem;
-            }
-            
-            .results-header h2 {
-                font-size: 2.6rem;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            .results-header h2 {
-                font-size: 2.4rem;
-            }
-            
-            .slogan {
-                font-size: 1.6rem;
-            }
-            
-            .tagline {
-                font-size: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .results-header h2 {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 70px 0;
-            }
-            
-            .nav-dots {
-                display: none;
-            }
-            
-            .teams-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .organizer-card {
-                padding: 30px 20px;
-            }
-            
-            .team-project-name {
-                min-height: auto;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .slogan {
-                font-size: 1.4rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .club-logo-circle {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .club-logo-text {
-                font-size: 1.8rem;
-            }
-            
-            .results-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .team-project-name {
-                font-size: 1.4rem;
-            }
-        }
-        
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Ensure footer is always visible */
-        footer .fade-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background-color: var(--primary-bg); color: var(--text-light); line-height: 1.6; overflow-x: hidden; font-weight: 400; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; margin-bottom: 1rem; }
+        h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.5px; }
+        h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); text-align: center; margin-bottom: 3rem; position: relative; }
+        h2::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 100px; height: 5px; background-color: var(--primary); border-radius: 3px; }
+        p { margin-bottom: 1.5rem; font-size: 1.15rem; line-height: 1.7; }
+        a { color: inherit; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 100px 0; }
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)), url('background.jpg'), url('hero.jpg'); background-size: cover; background-position: center; z-index: -1; }
+        .hero-content { width: 100%; max-width: 920px; margin: 0 auto; text-align: center; padding: 20px; }
+        .hero-logo { width: min(720px, 94vw); height: auto; display: block; margin: 0 auto 0.9rem; filter: drop-shadow(0 16px 32px rgba(0,0,0,.28)); }
+        .event-type { display: inline-block; margin-bottom: 1.15rem; font-family: 'Press Start 2P', monospace; font-size: clamp(1rem, 2.8vw, 1.9rem); line-height: 1.4; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; text-shadow: 3px 3px 0 rgba(8,27,51,.92), 6px 6px 0 rgba(249,115,22,.45); }
+        .slogan { font-size: clamp(1.7rem, 4vw, 3rem); color: var(--text-light); margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.03em; }
+        .hero-actions { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 1rem; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 14px 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--text-light); font-weight: 700; text-decoration: none; box-shadow: 0 14px 30px rgba(14,165,233,.24); transition: transform .25s ease, box-shadow .25s ease, background .25s ease; cursor: pointer; font-family: var(--font-heading); }
+        .btn:hover, .btn:focus-visible { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(56,189,248,.33); outline: none; }
+        .btn-secondary { background: rgba(8,27,51,.68); color: var(--accent); }
+        .btn-register { background: linear-gradient(135deg, var(--cta), #fb923c); }
+        .register-dropdown { position: relative; display: inline-block; }
+        .dropdown-menu { position: absolute; top: calc(100% + 10px); left: 50%; min-width: 250px; padding: 10px; border-radius: 18px; background: rgba(8,27,51,.96); border: 1px solid rgba(125,211,252,.35); box-shadow: 0 20px 45px rgba(0,0,0,.3); opacity: 0; visibility: hidden; transform: translate(-50%, -8px); transition: opacity .25s ease, transform .25s ease, visibility .25s ease; z-index: 20; }
+        @media (hover:hover) and (pointer:fine) { .register-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); } }
+        .register-dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+        .dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 12px 14px; color: var(--text-light); text-decoration: none; border-radius: 12px; transition: background .2s ease, color .2s ease, transform .2s ease; }
+        .dropdown-menu a:hover, .dropdown-menu a:focus-visible { background: rgba(14,165,233,.16); color: var(--accent); transform: translateX(3px); outline: none; }
+        .countdown { display: grid; grid-template-columns: repeat(4, minmax(86px, 1fr)); gap: 14px; width: min(560px, 100%); margin: 28px auto 0; }
+        .countdown-item { padding: 16px 10px; border-radius: 18px; background: rgba(8,27,51,.62); border: 1px solid rgba(125,211,252,.22); box-shadow: 0 12px 28px rgba(0,0,0,.18); }
+        .countdown-value { display: block; font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--accent); line-height: 1; transition: opacity .2s ease; }
+        .countdown-label { display: block; margin-top: 8px; color: var(--text-muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; }
+        .timeline-section { background: linear-gradient(180deg, rgba(8, 27, 51, 0.94) 0%, rgba(14, 39, 72, 0.82) 100%); border-top: 3px solid var(--primary); border-bottom: 3px solid var(--primary); }
+        .section-intro { text-align: center; margin: 0 auto 50px; max-width: 860px; }
+        .section-intro h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--accent); margin-bottom: 15px; }
+        .section-intro p { font-size: 1.22rem; color: var(--text-muted); margin: 0 auto; }
+        .timeline { display: grid; grid-template-columns: repeat(4, minmax(160px, 1fr)); gap: 22px; margin-top: 40px; }
+        .timeline-card, .about-feature, .ethics-card, .organizer-card { background-color: var(--card-bg); border-radius: 20px; padding: 28px; transition: transform .3s ease, background-color .3s ease, border-color .3s ease, box-shadow .3s ease; border: 1px solid rgba(255,255,255,.1); }
+        .timeline-card:hover, .about-feature:hover, .ethics-card:hover, .organizer-card:hover { transform: translateY(-10px); background-color: rgba(14,165,233,.13); border-color: var(--secondary); box-shadow: 0 20px 40px rgba(14,165,233,.2); }
+        .timeline-card { position: relative; text-align: center; min-height: 145px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .timeline-card:not(:last-child)::after { content: '↓'; position: absolute; right: -18px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: var(--accent); font-size: 1.6rem; font-weight: 800; }
+        .timeline-number { width: 46px; height: 46px; border-radius: 50%; background: var(--primary); color: var(--primary-bg); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-weight: 800; font-family: var(--font-heading); }
+        .timeline-title { font-size: 1.12rem; color: var(--text-light); font-weight: 700; font-family: var(--font-heading); }
+        .about-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+        .about-content p, .organizer-card p, .ethics-card p { color: var(--text-muted); }
+        .about-content { max-width: 900px; margin: 0 auto; }
+        .about-highlight { background: linear-gradient(90deg, rgba(14,165,233,.14), transparent); border-left: 5px solid var(--primary); padding: 30px; border-radius: 0 15px 15px 0; margin: 40px 0; }
+        .about-feature { text-align: center; }
+        .about-feature i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+        .ethics-card { max-width: 920px; margin: 0 auto; border-left: 5px solid var(--cta); }
+        .ethics-card h3 { color: var(--accent); display: flex; align-items: center; gap: 12px; }
+        .ethics-card i { color: var(--cta); }
+        .organizers-container { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        .organizer-card { text-align: center; width: 100%; max-width: 700px; padding: 50px; }
+        .club-logo-circle { width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; box-shadow: 0 10px 30px rgba(14,165,233,.35); overflow: hidden; }
+        .club-logo-image { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .3s ease; }
+        .club-logo-image:hover { transform: scale(1.05); }
+        .club-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; color: var(--accent); font-size: .98rem; font-weight: 600; text-decoration: none; transition: transform .25s ease, color .25s ease; }
+        .club-link:hover, .club-link:focus-visible { color: var(--secondary); transform: translateX(4px); outline: none; }
+        footer { background-color: rgba(0,0,0,.3); padding: 50px 0; text-align: center; border-top: 1px solid rgba(255,255,255,.1); }
+        .copyright { color: var(--text-muted); font-size: 1rem; margin-top: 25px; }
+        .nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 15px; }
+        .nav-dot { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(255,255,255,.3); transition: transform .3s ease, background-color .3s ease; cursor: pointer; }
+        .nav-dot:hover, .nav-dot.active { background-color: var(--accent); transform: scale(1.5); }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        footer .fade-in { opacity: 1 !important; transform: translateY(0) !important; }
+        @media (max-width: 992px) { .timeline { grid-template-columns: repeat(2, minmax(160px, 1fr)); } .timeline-card:not(:last-child)::after { right: 50%; top: auto; bottom: -28px; transform: translateX(50%); } }
+        @media (max-width: 768px) { section { padding: 70px 0; } .nav-dots { display: none; } .organizer-card { padding: 30px 20px; } .countdown { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
+        @media (max-width: 480px) { .hero-content { padding: 10px; } .countdown { grid-template-columns: repeat(2, 1fr); gap: 10px; } .btn { width: min(100%, 310px); } .dropdown-menu { min-width: min(280px, 88vw); } .club-logo-circle { width: 120px; height: 120px; } }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-bg"></div>
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="container">
             <div class="hero-content fade-in">
-                <h1 class="hero-title">AI HACKAFEST</h1>
-                <div class="slogan"># Learn.Adapt.Innovate</div>
-                <div class="tagline">First Round Results - Teams Advancing to Second Round</div>
+                <img src="Maker Mind Small.png" alt="MakerMind" class="hero-logo" onerror="this.onerror=null; this.src='Maker Mind small.png';">
+                <div class="event-type">Hackathon</div>
+                <h1 class="slogan">Build Ideas That Matter</h1>
+                <div class="hero-actions">
+                    <a class="btn btn-secondary" href="MakerMind Proposal Template.pdf" download><i class="fas fa-download" aria-hidden="true"></i> Download Proposal Template</a>
+                    <div class="register-dropdown" id="registerDropdown">
+                        <button class="btn btn-register" id="registerButton" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="registerMenu">Register <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+                        <div class="dropdown-menu" id="registerMenu" role="menu" aria-labelledby="registerButton">
+                            <a href="#" role="menuitem"><i class="fas fa-user" aria-hidden="true"></i> Register Individual</a>
+                            <a href="#" role="menuitem"><i class="fas fa-users" aria-hidden="true"></i> Register Team</a>
+                            <a href="MakerMind Proposal Template.pdf" download role="menuitem"><i class="fas fa-download" aria-hidden="true"></i> Download Proposal Template</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="countdown" aria-label="Countdown to MakerMind launch">
+                    <div class="countdown-item"><span class="countdown-value" id="days">000</span><span class="countdown-label">Days</span></div>
+                    <div class="countdown-item"><span class="countdown-value" id="hours">00</span><span class="countdown-label">Hours</span></div>
+                    <div class="countdown-item"><span class="countdown-value" id="minutes">00</span><span class="countdown-label">Minutes</span></div>
+                    <div class="countdown-item"><span class="countdown-value" id="seconds">00</span><span class="countdown-label">Seconds</span></div>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- Results Section -->
-    <section id="results" class="results-section">
+
+    <section id="timeline" class="timeline-section">
         <div class="container">
-            <div class="results-header fade-in">
-                <h2>First Round Results</h2>
-                <p>Congratulations to the teams that have successfully passed the first round and will be advancing to the second round of the AI Hackafest competition!</p>
+            <div class="section-intro fade-in">
+                <h2>Competition Timeline</h2>
+                <p>MakerMind guides students from registration to finals through a clear innovation journey. Participants begin with a real problem they care about, submit an idea, receive evaluation and mentorship, build a prototype, and pitch their solution for impact.</p>
             </div>
-            
-            <div class="teams-container">
-                <!-- Team cards will be generated by JavaScript -->
-            </div>
-            
-            <div class="fade-in" style="text-align: center; margin-top: 50px;">
-                <p style="color: var(--highlight); font-size: 1.2rem; font-weight: 600;">Good luck to all teams in the second round!</p>
-                <p style="color: var(--text-muted); margin-top: 15px;">The second round details will be communicated to team leaders via email.</p>
+            <div class="timeline">
+                <div class="timeline-card fade-in"><div class="timeline-number">1</div><div class="timeline-title">Registration</div></div>
+                <div class="timeline-card fade-in"><div class="timeline-number">2</div><div class="timeline-title">Idea Submission</div></div>
+                <div class="timeline-card fade-in"><div class="timeline-number">3</div><div class="timeline-title">Evaluation</div></div>
+                <div class="timeline-card fade-in"><div class="timeline-number">4</div><div class="timeline-title">Shortlisting</div></div>
+                <div class="timeline-card fade-in"><div class="timeline-number">5</div><div class="timeline-title">Mentorship</div></div>
+                <div class="timeline-card fade-in"><div class="timeline-number">6</div><div class="timeline-title">Prototype</div></div>
+                <div class="timeline-card fade-in"><div class="timeline-number">7</div><div class="timeline-title">Pitch Day</div></div>
+                <div class="timeline-card fade-in"><div class="timeline-number">8</div><div class="timeline-title">Finals</div></div>
             </div>
         </div>
     </section>
-    
-    <!-- About Section -->
+
     <section id="about">
         <div class="container">
-            <h2 class="fade-in">About AI Hackafest</h2>
+            <h2 class="fade-in">About MakerMind</h2>
             <div class="about-content fade-in">
-                <p>In the era of fast-changing technological advancement, we aim to harness the benefits of AI while minimizing its negative impacts on human livelihood. AI FOR GOOD – AI Hackafest invites students to explore AI in education and other sectors through hands-on projects and innovative solutions.</p>
-                
+                <p>MakerMind is an open innovation competition designed for students who want to turn curiosity into practical impact. Instead of predefined challenges, participants identify real-world problems they care about and propose creative solutions that can improve lives, communities, and industries.</p>
                 <div class="about-highlight">
-                    <p style="font-size: 1.3rem; font-weight: 500; color: var(--highlight); margin-bottom: 10px;">Our Mission</p>
-                    <p>Our mission is to empower the next generation of innovators with the tools and knowledge to create AI solutions that positively impact society. Through workshops, mentorship, and collaboration, participants will develop practical skills while addressing real-world challenges.</p>
+                    <p style="font-size: 1.3rem; font-weight: 500; color: var(--accent); margin-bottom: 10px;">Our Mission</p>
+                    <p>To empower young innovators to combine technology, entrepreneurship, and collaboration in projects that are original, feasible, and built for meaningful impact.</p>
                 </div>
-                
-                <p>AI Hackafest provides a platform for young minds to transform innovative ideas into tangible solutions, bridging the gap between theoretical knowledge and practical application in artificial intelligence.</p>
-                
+                <p>From artificial intelligence and healthcare to climate, education, cybersecurity, accessibility, finance, agriculture, smart cities, and social innovation, MakerMind provides a polished platform for bold ideas to grow.</p>
                 <div class="about-features">
-                    <div class="about-feature">
-                        <i class="fas fa-brain"></i>
-                        <h3>AI Innovation</h3>
-                        <p>Explore cutting-edge AI technologies and methodologies.</p>
-                    </div>
-                    <div class="about-feature">
-                        <i class="fas fa-hands-helping"></i>
-                        <h3>Hands-on Learning</h3>
-                        <p>Practical workshops and project-based learning approach.</p>
-                    </div>
-                    <div class="about-feature">
-                        <i class="fas fa-trophy"></i>
-                        <h3>Competitive Spirit</h3>
-                        <p>Compete with peers and showcase your innovative solutions.</p>
-                    </div>
+                    <div class="about-feature"><i class="fas fa-lightbulb"></i><h3>Creative Problem Solving</h3><p>Start with problems that matter and shape ideas into practical solutions.</p></div>
+                    <div class="about-feature"><i class="fas fa-microchip"></i><h3>Technology & Impact</h3><p>Use modern tools and entrepreneurial thinking to build for real users.</p></div>
+                    <div class="about-feature"><i class="fas fa-people-group"></i><h3>Collaboration</h3><p>Learn, pitch, iterate, and grow alongside motivated student innovators.</p></div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Organizers Section -->
+
+    <section id="ethics">
+        <div class="container">
+            <h2 class="fade-in">AI Ethics</h2>
+            <div class="ethics-card fade-in">
+                <h3><i class="fas fa-scale-balanced" aria-hidden="true"></i> Responsible Use of AI</h3>
+                <p>AI tools will be used responsibly as a support mechanism rather than a replacement for individual or team creativity, knowledge, and problem-solving abilities. The submission must reflect the original ideas, technical work, and intellectual contribution of the participant(s).</p>
+                <p>Excessive reliance on AI-generated content that does not demonstrate genuine understanding or involvement may compromise the integrity of the work. Participants are expected to maintain transparency, originality, and accountability throughout the project process. AI assistance should only be used to enhance productivity while preserving the authenticity of the final submission.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="organizers">
         <div class="container">
             <h2 class="fade-in">Organized By</h2>
             <div class="organizers-container">
                 <div class="organizer-card fade-in">
-                   <div class="club-logo-circle">
-                        <img src="ICT_Innovation.jpeg" alt="ICT and Innovation Club Logo" class="club-logo-image">
-                    </div>
-
+                    <div class="club-logo-circle"><img src="ICT_Innovation.jpeg" alt="ICT and Innovation Club Logo" class="club-logo-image"></div>
                     <h3>ICT & Innovation Club</h3>
-                    <p>Leading the initiative to promote technological innovation and AI literacy among students. Our club brings together passionate individuals to explore cutting-edge technologies and develop solutions for real-world challenges.</p>
+                    <p>Leading the initiative to promote technology, creativity, and innovation among students through collaborative projects, skills development, and real-world problem solving.</p>
+                    <a class="club-link" href="https://example.com/ict-innovation-club" target="_blank" rel="noopener">Learn more about the ICT & Innovation Club <span aria-hidden="true">→</span></a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div>
-                <h3>ICT & Innovation Club</h3>
-                <p>Empowering youth through technology and innovation</p>
-                <div class="copyright">
-                    &copy; 2026 AI FOR GOOD – AI Hackafest. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Navigation Dots -->
-    <div class="nav-dots">
-        <a href="#home" class="nav-dot active" data-section="home"></a>
-        <a href="#results" class="nav-dot" data-section="results"></a>
-        <a href="#about" class="nav-dot" data-section="about"></a>
-        <a href="#organizers" class="nav-dot" data-section="organizers"></a>
-    </div>
+
+    <footer><div class="container"><h3>ICT & Innovation Club</h3><p>Empowering youth through technology and innovation</p><div class="copyright">&copy; 2026 MakerMind. All rights reserved.</div></div></footer>
+
+    <div class="nav-dots" aria-label="Section navigation"><a href="#home" class="nav-dot active" data-section="home" aria-label="Home"></a><a href="#timeline" class="nav-dot" data-section="timeline" aria-label="Timeline"></a><a href="#about" class="nav-dot" data-section="about" aria-label="About"></a><a href="#ethics" class="nav-dot" data-section="ethics" aria-label="AI Ethics"></a><a href="#organizers" class="nav-dot" data-section="organizers" aria-label="Organizers"></a></div>
 
     <script>
-        // Team data from the spreadsheet
-        const teamsData = [
-            { rank: 1, projectName: "Skill-Forge", teamLeader: "Mwizerwa Chretien" },
-            { rank: 2, projectName: "AGRIPULSE", teamLeader: "IRAKIZA Allen Bruno" },
-            { rank: 3, projectName: "UMUSINGI", teamLeader: "Asimwe Rugwiro Audry" },
-            { rank: 4, projectName: "LearnBit", teamLeader: "KWIZERA Mugisha Christian" },
-            { rank: 5, projectName: "Tuza AI", teamLeader: "INEZA GISA MERVEILLEUX" },
-            { rank: 6, projectName: "Respira Direct", teamLeader: "MUCYO ALAIN DESPIN" },
-            { rank: 7, projectName: "Smart-Transit", teamLeader: "IRATWUMVA Baron Elliot" },
-            { rank: 8, projectName: "Premodia", teamLeader: "NIYOMUGABO Ernest" },
-            { rank: 9, projectName: "EduLens AI", teamLeader: "ABAYO Didier" },
-            { rank: 10, projectName: "Waste-to-Wealth", teamLeader: "Mucyo Ndinda Lucky" }
-        ];
-        
-        // Generate team cards
-        function generateTeamCards() {
-            const teamsContainer = document.querySelector('.teams-container');
-            
-            teamsData.forEach(team => {
-                const teamCard = document.createElement('div');
-                teamCard.className = 'team-card fade-in';
-                
-                teamCard.innerHTML = `
-                    <div class="team-rank">${team.rank}</div>
-                    <div class="team-project-name">${team.projectName}</div>
-                    <div class="team-details">
-                        <div class="team-detail">
-                            <i class="fas fa-user"></i>
-                            <div>
-                                <div class="team-leader">${team.teamLeader}</div>
-                                <div class="team-level">Team Leader</div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                teamsContainer.appendChild(teamCard);
-            });
-            
-            // Trigger animations after cards are created
-            setTimeout(() => {
-                checkScroll();
-            }, 100);
+        function updateCountdown() {
+            const targetDate = new Date('2026-11-12T00:00:00Z').getTime();
+            const distance = Math.max(0, targetDate - Date.now());
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((distance / (1000 * 60)) % 60);
+            const seconds = Math.floor((distance / 1000) % 60);
+            document.getElementById('days').textContent = String(days).padStart(3, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         }
-        
-        // Call the function to generate team cards
-        document.addEventListener('DOMContentLoaded', generateTeamCards);
-        
-        // Smooth scroll for navigation
+        function setupDropdown() {
+            const dropdown = document.getElementById('registerDropdown');
+            const button = document.getElementById('registerButton');
+            const menu = document.getElementById('registerMenu');
+            const setOpen = (open) => { dropdown.classList.toggle('open', open); button.setAttribute('aria-expanded', String(open)); };
+            button.addEventListener('click', (event) => { event.stopPropagation(); setOpen(!dropdown.classList.contains('open')); });
+            document.addEventListener('click', (event) => { if (!dropdown.contains(event.target)) setOpen(false); });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') { setOpen(false); button.focus(); }
+                if (event.key === 'ArrowDown' && document.activeElement === button) { event.preventDefault(); setOpen(true); menu.querySelector('a').focus(); }
+            });
+            menu.addEventListener('keydown', (event) => {
+                const items = [...menu.querySelectorAll('a')];
+                const current = items.indexOf(document.activeElement);
+                if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); const next = event.key === 'ArrowDown' ? (current + 1) % items.length : (current - 1 + items.length) % items.length; items[next].focus(); }
+            });
+            dropdown.addEventListener('focusout', () => setTimeout(() => { if (!dropdown.contains(document.activeElement)) setOpen(false); }, 0));
+        }
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
+                if (targetId === '#') return;
+                e.preventDefault();
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 20,
-                        behavior: 'smooth'
-                    });
-                    
-                    updateActiveNavDot(targetId.substring(1));
-                }
+                if (targetElement) { window.scrollTo({ top: targetElement.offsetTop - 20, behavior: 'smooth' }); updateActiveNavDot(targetId.substring(1)); }
             });
         });
-        
-        function updateActiveNavDot(sectionId) {
-            document.querySelectorAll('.nav-dot').forEach(dot => {
-                dot.classList.remove('active');
-                if(dot.getAttribute('href').substring(1) === sectionId) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-        
-        // Fixed scroll animation - only applies to sections
+        function updateActiveNavDot(sectionId) { document.querySelectorAll('.nav-dot').forEach(dot => dot.classList.toggle('active', dot.getAttribute('href').substring(1) === sectionId)); }
         function checkScroll() {
-            const fadeElements = document.querySelectorAll('section .fade-in');
-            
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if(elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-            
-            // Update active nav dot
-            const sections = document.querySelectorAll('section[id]');
+            document.querySelectorAll('section .fade-in').forEach(element => { if (element.getBoundingClientRect().top < window.innerHeight - 150) element.classList.add('visible'); });
             const scrollPosition = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if(scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    updateActiveNavDot(sectionId);
-                }
-            });
+            document.querySelectorAll('section[id]').forEach(section => { if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) updateActiveNavDot(section.id); });
         }
-        
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('load', checkScroll);
-        
-        // Initialize animations on load
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.hero-content').classList.add('visible');
-            
-            if(window.location.hash) {
-                const sectionId = window.location.hash.substring(1);
-                updateActiveNavDot(sectionId);
-            }
-        });
-        
-        // Hover effects for cards
-        document.querySelectorAll('.organizer-card, .team-card, .about-feature').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
+        document.addEventListener('DOMContentLoaded', () => { setupDropdown(); updateCountdown(); setInterval(updateCountdown, 1000); document.querySelector('.hero-content').classList.add('visible'); checkScroll(); if (window.location.hash) updateActiveNavDot(window.location.hash.substring(1)); });
     </script>
 </body>
 </html>
